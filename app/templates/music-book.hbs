@@ -1,0 +1,23 @@
+<h3>Aqui se mostraran todos los music-books xoxo</h3>
+<form {{action "addMusic" on='submit'}}>
+	<p>Titulo</p>
+	{{input type='text' value=title}}
+	<p>Id del autor</p>
+	{{input type='text' value=id}}
+	<p>Precio</p>
+	{{input type='text' value=price}}
+	<p>Imagen</p>
+	{{input type='text' value=img}}
+	<br>
+	<button>Añadir Music-book</button>
+</form>
+
+<br>
+<br>
+
+{{#each model as |music|}}
+ 	{{music-book title=music.title id=music.author_id price=music.price
+ 	image=music.img_url  onUpdate=(action 'editarTemplate' music) 
+ 	onDelete=(action 'eliminarTemplate' music)}}
+{{/each}}
+
